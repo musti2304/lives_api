@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -20,4 +21,11 @@ public class LiveResource {
 	public List<Live> getLive() {
 		return liveService.getAllLives();
 	}	
+	
+	@GET
+	@Path("/{liveId}")
+	@Produces(MediaType.APPLICATION_XML)
+	public Live getLive(@PathParam("liveId") long liveId) {
+		return liveService.getLive(liveId);
+	}
 }
