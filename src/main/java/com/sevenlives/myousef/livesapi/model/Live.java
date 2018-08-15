@@ -41,9 +41,7 @@ public class Live {
 	private boolean isDead;
 	private boolean isAlive;
 	
-	/**
-	 * Default constructor
-	 */
+	
 	public Live() {}
 
 	public Live(long id, String url, int age, Date birthDate, Date deathDate, Date aliveSince, Date aliveUntil,
@@ -140,5 +138,5 @@ public class Live {
 	public void setAlive(boolean isAlive) {
 		this.isAlive = isAlive;
 	}
-	
+
 }

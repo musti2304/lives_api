@@ -19,5 +19,6 @@ public class LiveResource {
 	@Produces(MediaType.APPLICATION_XML)
 	public List<Live> getLive() {
 		return liveService.getAllLives();
-	}	
+	}
+	
 }
