@@ -12,7 +12,7 @@ import com.sevenlives.myousef.livesapi.model.User;
 public class LiveService {
 
 	private Map<Long, Live> lives = Database.getLives();
-	private Map<Long, Live> livesForUser = Database.getLiveForUser();
+//	private Map<Long, Live> livesForUser = Database.getLiveForUser();
 
 	public LiveService() {
 		lives.put(1L, new Live(1, "w", 2, new Date(), new Date(), new Date(), new Date(), 12, false, true));
@@ -53,7 +53,7 @@ public class LiveService {
 	}
 
 	// DELETE
-	public Live destroyLive(long id) {
-		return lives.remove(id);
+	public void destroyLive(long id) {
+		lives.remove(id);
 	}
 }
