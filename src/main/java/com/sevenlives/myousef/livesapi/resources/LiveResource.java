@@ -24,8 +24,8 @@ public class LiveResource {
 
 	@GET
 	@Path("/{liveId}")
-	public Live getLive(@PathParam("liveId") long liveId) {
-		return liveService.getLive(liveId);
+	public Live getLive(@PathParam("liveId") long id) {
+		return liveService.getLive(id);
 	}
 
 	@GET
@@ -40,24 +40,19 @@ public class LiveResource {
 //		return liveService.getLiveForUser(userId, liveId);
 //	}
 	
-	// TODO: Implement POST methods
 	@POST
 	public Live createLive(Live live) {
-		
 		return liveService.createLive(live);
 	}
 	
-	// TODO: Implement PUT methods
 	@PUT
 	@Path("/{liveId}")
 	public Live saveLive(@PathParam("liveId") long id, Live live) {
 		live.setId(id);
-		
 		return liveService.saveLive(live);
 	}
 	
 	
-	// TODO: Implement DELETE methods
 	@DELETE
 	@Path("/{liveId}")
 	public void destroyLive(@PathParam("liveId") long id) {

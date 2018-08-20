@@ -48,7 +48,6 @@ public class Live {
 
 	public Live(long id, String url, int age, Date birthDate, Date deathDate, Date aliveSince, Date aliveUntil,
 			int saves, boolean isDead, boolean isAlive) {
-		super();
 		this.id = id;
 		this.url = url;
 		this.age = age;
