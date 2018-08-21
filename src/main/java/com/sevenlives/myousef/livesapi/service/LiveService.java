@@ -1,13 +1,13 @@
 package com.sevenlives.myousef.livesapi.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import com.sevenlives.myousef.livesapi.database.Database;
 import com.sevenlives.myousef.livesapi.model.Live;
-import com.sevenlives.myousef.livesapi.model.User;
 
 public class LiveService {
 
@@ -23,7 +23,26 @@ public class LiveService {
 	public List<Live> getAllLives() {
 		return new ArrayList<Live>(lives.values());
 	}
-	
+
+	public List<Live> getAllLivesForYear(int year) {
+		List<Live> livesForYear = new ArrayList<>();
+		Calendar cal = Calendar.getInstance();
+		for (Live live : lives.values()) {
+			cal.setTime(live.getBirthDate());
+			if (cal.get(Calendar.YEAR) == year) {
+				livesForYear.add(live);
+			}
+		}
+		return livesForYear;
+	}
+
+	public List<Live> getAllLivesPaginated(int start, int size) {
+		ArrayList<Live> list = new ArrayList<Live>(lives.values());
+		if (start + size > list.size())
+			return new ArrayList<Live>();
+		return list.subList(start, start + size);
+	}
+
 	// GET
 	public Live getLive(long id) {
 		return lives.get(id);
