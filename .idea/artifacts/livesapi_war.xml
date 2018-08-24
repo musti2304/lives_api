@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="livesapi:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="livesapi.war">
+      <element id="artifact" artifact-name="livesapi:war exploded" />
+    </root>
+  </artifact>
+</component>
