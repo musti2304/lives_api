@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.sevenlives.myousef.livesapi.model.User;
+import com.sevenlives.myousef.livesapi.service.LiveService;
 import com.sevenlives.myousef.livesapi.service.UserService;
 
 @Path("/users")
@@ -21,6 +22,7 @@ import com.sevenlives.myousef.livesapi.service.UserService;
 public class UserResource {
 
 	private UserService userService = new UserService();
+	private LiveService liveService = new LiveService();
 
 	@GET
 	public List<User> getAllUsers() {
@@ -49,6 +51,11 @@ public class UserResource {
 	@Path("/{username}")
 	public void deleteUser(@PathParam("username") String username) {
 		userService.removeUser(username);
+	}
+	
+	@Path("/{username}/lives")
+	public LiveResource getLiveResources() {
+		return new LiveResource();
 	}
 
 }

@@ -13,7 +13,7 @@ public class UserService {
 	private Map<String, User> users = Database.getUsers();
 
 	public UserService() {
-		users.put("musti1", new User(1L, "musti1", "Mustafa Yousef", "www.google.de/hello.png", "kifjsughauh",
+		users.put("musti", new User(1L, "musti", "Mustafa Yousef", "www.google.de/hello.png", "Hello, my name is Mustafa.",
 				new ArrayList<Live>()));
 	}
 
@@ -21,8 +21,8 @@ public class UserService {
 		return new ArrayList<User>(users.values());
 	}
 
-	public User getUser(String userName) {
-		return users.get(userName);
+	public User getUser(String username) {
+		return users.get(username);
 	}
 
 	public User createUser(User user) {
@@ -39,8 +39,8 @@ public class UserService {
 		return user;
 	}
 
-	public User removeUser(String userName) {
-		return users.remove(userName);
+	public User removeUser(String username) {
+		return users.remove(username);
 	}
 
 }

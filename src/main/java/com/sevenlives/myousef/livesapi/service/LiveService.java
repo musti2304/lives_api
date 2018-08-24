@@ -14,9 +14,9 @@ public class LiveService {
 	private Map<Long, Live> lives = Database.getLives();
 
 	public LiveService() {
-		lives.put(1L, new Live(1, "w", 2, new Date(), new Date(), new Date(), new Date(), 12, false, true));
-		lives.put(2L, new Live(2, "ww", 4, new Date(), new Date(), new Date(), new Date(), 1, false, true));
-		lives.put(3L, new Live(3, "www", 6, new Date(), new Date(), new Date(), new Date(), 2, false, true));
+//		lives.put(1L, new Live(1, "w", 2, new Date(), new Date(), new Date(), new Date(), 12, false, true));
+//		lives.put(2L, new Live(2, "ww", 4, new Date(), new Date(), new Date(), new Date(), 1, false, true));
+//		lives.put(3L, new Live(3, "www", 6, new Date(), new Date(), new Date(), new Date(), 2, false, true));
 	}
 
 	// GET

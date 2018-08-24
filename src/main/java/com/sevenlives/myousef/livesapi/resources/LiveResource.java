@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import com.sevenlives.myousef.livesapi.model.Live;
 import com.sevenlives.myousef.livesapi.service.LiveService;
 
-@Path("/lives")
+@Path("/")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class LiveResource {
@@ -65,5 +65,7 @@ public class LiveResource {
 	public void destroyLive(@PathParam("liveId") long id) {
 		liveService.destroyLive(id);
 	}
+	
+	
 
 }
