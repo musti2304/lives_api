@@ -21,51 +21,61 @@ import com.sevenlives.myousef.livesapi.service.LiveService;
 @Produces(MediaType.APPLICATION_JSON)
 public class LiveResource {
 
-	LiveService liveService = new LiveService();
+	private LiveService liveService = new LiveService();
+
+	@GET
+	public List<Live> getAllLives(@PathParam("username") String username) {
+		return liveService.getAllLives(username);
+	}
 
 	@GET
 	@Path("/{liveId}")
-	public Live getLive(@PathParam("liveId") long id) {
-		return liveService.getLive(id);
+	public Live getLive(@PathParam("username") String username, @PathParam("liveId") long liveId) {
+		return liveService.getLivesForUser(username, liveId);
 	}
-
-	@GET
-	public List<Live> getAllLives(@QueryParam("year") int year, @QueryParam("start") int start,
-			@QueryParam("size") int size) {
-		if (year > 0) {
-			return liveService.getAllLivesForYear(year);
-		}
-		if (start >= 0 && size > 0) {
-			return liveService.getAllLivesPaginated(start, size);
-		}
-		return liveService.getAllLives();
-	}
-
-//	@GET
-//	@Path("/users/{userId}/{liveId}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Live getLiveForUser(@PathParam("userId)") long userId, @PathParam("liveId") long liveId) {
-//		return liveService.getLiveForUser(userId, liveId);
-//	}
 
 	@POST
-	public Live createLive(Live live) {
-		return liveService.createLive(live);
+	public Live createLive(@PathParam("username") String username, Live live) {
+		return liveService.createLive(username, live);
 	}
 
 	@PUT
 	@Path("/{liveId}")
-	public Live saveLive(@PathParam("liveId") long id, Live live) {
-		live.setId(id);
-		return liveService.saveLive(live);
+	public Live saveLive(@PathParam("username") String username, @PathParam("liveId") long liveId, Live live) {
+		live.setId(liveId);
+		return liveService.saveLive(username, live);
 	}
 
 	@DELETE
 	@Path("/{liveId}")
-	public void destroyLive(@PathParam("liveId") long id) {
-		liveService.destroyLive(id);
+	public void destroyLive(@PathParam("username") String username, @PathParam("liveId") long liveId) {
+		liveService.destroyLive(username, liveId);
 	}
-	
-	
+
+//	@GET
+//	@Path("/{liveId}")
+//	public Live getLive(@PathParam("liveId") long id) {
+//		return liveService.getLive(id);
+//	}
+
+//	@GET
+//	public List<Live> getAllLives(@QueryParam("year") int year, @QueryParam("start") int start,
+//			@QueryParam("size") int size) {
+//		if (year > 0) {
+//			return liveService.getAllLivesForYear(year);
+//		}
+//		if (start >= 0 && size > 0) {
+//			return liveService.getAllLivesPaginated(start, size);
+//		}
+//		return liveService.getAllLives();
+//	}
+
+//	@GET
+//	@Path("/users/{userId}/{liveId}")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Live getLiveForUser(@PathParam("userId)") String username, @PathParam("liveId") long liveId) {
+//		return liveService.getLiveForUser(userId, liveId);
+//	}
+//
 
 }

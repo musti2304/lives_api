@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * 
  * @author myousef
  * 
- *         This class defines the model of a Live
+ * This class defines the model of a Live
  * 
  */
 @XmlRootElement
@@ -20,7 +20,8 @@ public class Live {
 	 * @id: Is the unique ID of one Live
 	 * @url: Is the URL path of where the Live is being saved
 	 * @age: Is the age of a Live. It will be calculated from the birthDate until
-	 *       the date of today
+	 *       the date of today and will be printed out as a unit (seconds, minutes,
+	 *       hours, days, weeks, months, years)
 	 * @birthDate: When was the Live created
 	 * @deathDate: When was the Live destroyed
 	 * @aliveSince: The same as the @age
@@ -31,6 +32,7 @@ public class Live {
 	 * 
 	 */
 	private long id;
+	private User user;
 	private String url;
 	private int age;
 	private Date birthDate;

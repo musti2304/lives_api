@@ -1,6 +1,7 @@
 package com.sevenlives.myousef.livesapi.model;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,13 +13,12 @@ public class User {
 	private String fullName;
 	private String profilePictureUrl;
 	private String bio;
-	private List<Live> lives;
+	private Map<Long, Live> lives;
 
 	public User() {
 	}
 
-	public User(long id, String username, String fullName, String profilePictureUrl, String bio, List<Live> lives) {
-		super();
+	public User(long id, String username, String fullName, String profilePictureUrl, String bio, Map<Long, Live> lives) {
 		this.id = id;
 		this.username = username;
 		this.fullName = fullName;
@@ -67,11 +67,11 @@ public class User {
 		this.bio = bio;
 	}
 
-	public List<Live> getLives() {
+	public Map<Long, Live> getLives() {
 		return lives;
 	}
 
-	public void setLives(List<Live> lives) {
+	public void setLives(Map<Long, Live> lives) {
 		this.lives = lives;
 	}
 

@@ -1,6 +1,7 @@
 package com.sevenlives.myousef.livesapi.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ public class UserService {
 
 	public UserService() {
 		users.put("musti", new User(1L, "musti", "Mustafa Yousef", "www.google.de/hello.png", "Hello, my name is Mustafa.",
-				new ArrayList<Live>()));
+				new HashMap<Long, Live>()));
 	}
 
 	public List<User> getAllUsers() {
